@@ -7,39 +7,92 @@ html{
     scroll-behavior: smooth;
 }
 
+
+:root{
+    --c-dark: #0c0f0a;
+    --c-dark-soft: #232b2b;
+    --c-text-light: #ffff;
+    --c-highlight-1-dark: #fbff12;
+    --c-highlight-2-dark: #41ead4;
+}
+
+:root{
+    --background-c: var(--c-dark);
+    --text-c: var(--c-text-light);
+}
+
+
 body{
-    background-color: black;
-    font-size: 1em;
+    background-color: var(--background-c);
+    color: var(--text-c);
+    font-size: 0.875em;
     margin:0;
 }
 
 
 header{
-    border-bottom-style: solid;
-    border-width: medium;
-    border-color:#fb1543;
-    width: 100%;
-    height: 3vw;
-    max-height: 50px;
-    background-color: black;
-    position: sticky;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
     
-    gap: 1%;
+    /*background-color: var(--c-dark);*/
+    height: 48px;
+    position: fixed;
+    inset: 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3%;
+    flex:1;
+}
+
+.nav-bar-left{
+    display: flex;
+    flex: 1;
+    font-size: 1.2em;
+}
+
+.nav-bar-center{
+    background-color: 	#3b444b;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 150px;
+    padding: 5px 10px;
+    border-radius:30px;
     
 }
 
+.nav-bar-right{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
 
+.nav-bar-center-contents{
+    align-items: center;
+    display: flex;
+    grid-column-gap: 20px;
+}
+
+header a:hover{
+    color: var(--c-highlight-1-dark);
+    transition: 0.3s;
+}
+
+header a{
+    
+    height: 100%;
+    text-decoration: none;
+    color: var(--c-text-light);
+    font-weight: bold;
+    align-content: center;
+    display: inline-block;
+}
 
 
 div#intro{
     scroll-margin-top: 50px;
     top: 0;
     left: 0;
-    
+    margin-top: 50px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -49,18 +102,22 @@ div#intro{
 }
 div#intro p{
     width: 60vw;
-    max-width: 800px;
+    max-width: 1000px;
     text-align: justify;
+    font-size: 1.5em;
 }
 
 div#projects{
     scroll-margin-top: 50px;
 }
+div#projects h1{
+    font-size: 3em;
+}
 
 div#main{
     
     margin: 2% 10% 3% 10%;
-    color: #32d8f2;
+    color: var(--c-text-light);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,28 +125,35 @@ div#main{
 
 .main_item{
     
-    margin: 0 0 3% 0;
-    border-style: solid;
-    border-width:thin;
+    margin-bottom: 30px;
     width: 50vw;
-    max-width: 720px;
+    max-width: 800px;
     max-height: 800px;
+    background-color: var(--c-dark-soft);
+    border-radius: 1%;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    
 }
 
-.main_item h2{
-    margin:0;
-    background-color: #32d8f2;
-    color: black;
-    width: 50%;
-
+.main_item_title{
+   
+    height: 100px;
+    align-items: center;
+    
 }
-
-.main_item p,h3{
+.main_item_content{
+    overflow: hidden;
+    height: 200px;
+}
+.main_item p,h2,h3{
     padding: 0 2%;
     text-align: justify;
+    overflow: hidden;
 }
 
-div.item_button{
+.item_button{
     display: flex;
     flex-direction: row;
     justify-content:right;
@@ -100,8 +164,8 @@ div.item_button{
 }
 
 
-a.item_button{
-    background-color: #32d8f2;
+.item_button a{
+    background-color: var(--c-highlight-2-dark);
     color: black;
     padding: 1.5%;
     border: none;
@@ -111,37 +175,13 @@ a.item_button{
     width: 20%;
     font-weight: bold;
     font-size: 1em;
+    border-radius: 30px;
 }
 
-a.item_button:hover{
+.item_button a:hover{
    
-    background-color: #32d55e;
-}
-
-
-.navigation_item{
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    min-width: 5%;
-}
-
-
-.navigation_item a:hover{
-    color: #32d55e;
-}
-
-.navigation_item a{
-    
-    height: 100%;
-    text-decoration: none;
-    font-weight: bold;
-    align-content: center;
-    color: #fb1543;
-    display: inline-block;
+    background-color: var(--c-highlight-1-dark);
+    transition: 0.3s;
 }
 
 @media (max-width:720px){
